@@ -1,11 +1,11 @@
 # Ukrainian Modernism — Landing Template
 
-A minimalist, content-driven landing page built with **Next.js App Router**.
-Designed as an editorial showcase for a book collection, featuring i18n support, smooth interactions, and a premium magazine-style layout.
+A minimalist, content-driven landing page built with **Next.js (App Router, modern version)**.
+Designed as an editorial showcase for a book collection, featuring i18n support (FR/UK), smooth interactions, and a premium magazine-style layout.
 
 ## 🏗 Architecture
 
-- **Framework**: Next.js 14+ (App Router)
+- **Framework**: Next.js 16+ (App Router)
 - **Language**: TypeScript
 - **Styling**: CSS Modules (zero-runtime overhead, scoped styles)
 - **Internationalization**: Dictionary-based i18n (JSON files)
@@ -16,7 +16,7 @@ Designed as an editorial showcase for a book collection, featuring i18n support,
 ```
 src/
 ├── app/
-│   ├── [lang]/          # Localized routes (e.g. /fr, /uk, /en)
+│   ├── [lang]/          # Localized routes (/fr, /ukOnly)
 │   │   ├── page.tsx     # Main Landing Page
 │   │   ├── legal/       # Legal Mentions page
 │   │   └── privacy/     # Privacy Policy page
@@ -50,7 +50,7 @@ The `books.ts` file exports a typed array of `Book` objects.
 - **IDs**: Used for scrolling anchors and unique keys.
 - **Images**: Paths to covers and promo shots in `public/assets/`.
 - **Links**: Amazon, PDF downloads, YouTube teasers.
-- **Text**: For multilingual support, titles and descriptions are now stored in `src/dictionaries/*.json` under the `collection` key, mapped by book ID.
+- **Text**: Titles and descriptions are stored in `src/dictionaries/*.json` under the `collection` key, mapped by book ID.
 
 ### 3. Assets (`public/assets/`)
 Store your images here.
@@ -61,7 +61,7 @@ Store your images here.
 
 ## ♻️ Reuse Instructions
 
-To adapt this template for another project:
+This template is designed for editorial projects requiring a high-end feel. To adapt it:
 
 1.  **Replace Assets**:
     - Overwrite images in `public/assets/books/`.
@@ -81,7 +81,7 @@ To adapt this template for another project:
 
 ### Prerequisites
 - Node.js 18+
-- npm or pnpm
+- npm
 
 ### Commands
 
@@ -101,9 +101,18 @@ npm start
 
 ## 📦 Deployment
 
-The project is static-export ready (or standard Next.js server).
-- **Vercel**: Zero configuration required. Just push to GitHub.
-- **Static**: Run `npm run build`.
+The project is structured for flexibility.
+
+### 1. Dynamic Hosting (Recommended)
+Deploying to **Vercel** or other Node.js hosting providers is the default.
+- Zero configuration required.
+- Just replace the remote origin and push.
+
+### 2. Static Export
+If you need to deploy to **GitHub Pages** or **Cloudflare Pages**:
+- Add `output: 'export'` to `next.config.ts`.
+- Run `npm run build`.
+- The `out/` folder will contain the static assets.
 
 ## 📜 License
 
