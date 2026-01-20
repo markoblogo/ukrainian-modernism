@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ukrainian Modernism — Landing Template
 
-## Getting Started
+A minimalist, content-driven landing page built with **Next.js App Router**.
+Designed as an editorial showcase for a book collection, featuring i18n support, smooth interactions, and a premium magazine-style layout.
 
-First, run the development server:
+## 🏗 Architecture
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework**: Next.js 14+ (App Router)
+- **Language**: TypeScript
+- **Styling**: CSS Modules (zero-runtime overhead, scoped styles)
+- **Internationalization**: Dictionary-based i18n (JSON files)
+- **Typography**: Optimized for readability (Serif headings, Sans-serif body)
+
+### Core Structure
+
+```
+src/
+├── app/
+│   ├── [lang]/          # Localized routes (e.g. /fr, /uk, /en)
+│   │   ├── page.tsx     # Main Landing Page
+│   │   ├── legal/       # Legal Mentions page
+│   │   └── privacy/     # Privacy Policy page
+│   └── layout.tsx       # Root layout (fonts, metadata)
+├── components/
+│   ├── Hero.tsx         # Hero section with Staircase book stack
+│   ├── WhySection.tsx   # "Why this collection" grid
+│   ├── BookSection.tsx  # Individual book showcase (Magazine layout)
+│   ├── Footer.tsx       # Footer navigation
+│   └── ...
+├── data/
+│   └── books.ts         # Single Source of Truth for book data
+└── dictionaries/
+    ├── fr.json          # French content
+    └── uk.json          # Ukrainian content
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📝 Content-Driven Approach
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All content is separated from the UI logic. You can reuse this project by simply updating the data files.
 
-## Learn More
+### 1. Dictionary Strings (`src/dictionaries/*.json`)
+All UI text — headings, buttons, "Why" cards, and Legal pages — lives here.
+- `fr.json` (French)
+- `uk.json` (Ukrainian)
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Book Data (`src/data/books.ts`)
+The `books.ts` file exports a typed array of `Book` objects.
+- **IDs**: Used for scrolling anchors and unique keys.
+- **Images**: Paths to covers and promo shots in `public/assets/`.
+- **Links**: Amazon, PDF downloads, YouTube teasers.
+- **Text**: For multilingual support, titles and descriptions are now stored in `src/dictionaries/*.json` under the `collection` key, mapped by book ID.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Assets (`public/assets/`)
+Store your images here.
+- `cover.jpg` / `cover.png`: Standard book cover (Portrait).
+- `promo.png` / `promo.jpg`: Full-width promotional shot (Landscape).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ♻️ Reuse Instructions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To adapt this template for another project:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1.  **Replace Assets**:
+    - Overwrite images in `public/assets/books/`.
+    - Format: High-quality web-optimized JPG/PNG.
+
+2.  **Update Content**:
+    - Edit `src/dictionaries/*.json` with your new project text.
+    - Update `src/data/books.ts` with your book IDs and URLs.
+
+3.  **Adjust Layout (Optional)**:
+    - The components (`BookSection`, `HeroCoverGrid`) are built to be content-agnostic.
+    - If you change the number of books, the `HeroCoverGrid` generic stack logic will handle it, though 4-5 items usually look best.
+
+---
+
+## 🚀 Development
+
+### Prerequisites
+- Node.js 18+
+- npm or pnpm
+
+### Commands
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+## 📦 Deployment
+
+The project is static-export ready (or standard Next.js server).
+- **Vercel**: Zero configuration required. Just push to GitHub.
+- **Static**: Run `npm run build`.
+
+## 📜 License
+
+© 2026 ABVX.xyz. All rights reserved.
+Template free for reuse with attribution.

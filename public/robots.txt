@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ukrainian-modernism.abvx.xyz/sitemap.xml

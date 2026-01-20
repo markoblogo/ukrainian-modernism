@@ -1,0 +1,146 @@
+/* Container */
+.stackContainer {
+    position: relative;
+    width: 100%;
+    /* Ensure enough height for the staircase stack + popups */
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Center visuals */
+}
+
+.scroller {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* 
+   MOBILE LAYOUT 
+   Horizontal scroll with overlapping "staircase" look using negative margins.
+*/
+@media (max-width: 1023px) {
+    .stackContainer {
+        height: 65vh;
+        min-height: 450px;
+    }
+
+    .scroller {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 40px 20px;
+        /* Top padding for pop-out space */
+        padding-right: 140px;
+        /* Space to see last items due to overlap */
+        align-items: center;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        /* Start with first item */
+        justify-content: flex-start;
+    }
+
+    .scroller::-webkit-scrollbar {
+        display: none;
+    }
+
+    .cardWrapper {
+        flex: 0 0 auto;
+        width: 240px;
+        /* Fixed width for mobile cards */
+        aspect-ratio: 2/3;
+        scroll-snap-align: start;
+        position: relative;
+        /* Overlap logic for mobile staircase feel */
+        margin-right: -140px;
+        transition: transform 0.3s ease, margin 0.3s ease;
+        z-index: var(--z);
+        /* respect z-index from props if possible, or override */
+        /* Re-assert stacking for mobile stream */
+        z-index: 1;
+    }
+
+    /* Ensure clicked/focused/active one comes above? */
+    .cardWrapper:focus-within,
+    .cardWrapper:hover {
+        z-index: 50;
+        transform: translateY(-20px);
+    }
+
+    /* Reset rotations for mobile stream or keep them subtle? */
+    .cardWrapper {
+        transform: rotate(var(--r));
+    }
+}
+
+/* 
+   DESKTOP LAYOUT 
+   Absolute Staircase Stack
+*/
+@media (min-width: 1024px) {
+    .stackContainer {
+        height: 650px;
+        /* Tall enough */
+        width: 100%;
+        max-width: 650px;
+        /* Constrain width to keep stack tight */
+    }
+
+    .scroller {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        /* Allow pop-outs */
+    }
+
+    .cardWrapper {
+        position: absolute;
+        width: 280px;
+        height: 420px;
+        left: var(--x);
+        top: var(--y);
+        transform: rotate(var(--r));
+        z-index: var(--z);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        cursor: pointer;
+        transform-origin: center bottom;
+    }
+
+    /* Hover Effect: Pop Out */
+    .cardWrapper:hover {
+        transform: translateY(-50px) translateX(10px) scale(1.05) rotate(0deg) !important;
+        /* z-index handled by inline style state */
+    }
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 0.3s ease;
+    /* Ensure overflow visible for badge */
+    overflow: visible;
+}
+
+.cardWrapper:hover .card {
+    box-shadow: -20px 30px 50px rgba(0, 0, 0, 0.35);
+}
+
+.imageContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    /* Force GPU */
+    transform: translateZ(0);
+}
+
+.coverImg {
+    object-fit: cover;
+}
