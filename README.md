@@ -121,13 +121,13 @@ npm run build
 npm install
 ```
 
-# Run development server
+### Run development server
 ```npm run dev```
 
-# Build for production
+### Build for production
 ```npm run build```
 
-# Start production server
+### Start production server
 ```npm start```
 
 ## 🌍 Deployment
