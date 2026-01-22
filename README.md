@@ -112,22 +112,24 @@ This approach is ideal for:
 npm install
 npm run dev
 npm run build
+```
 
 ### Commands
 
 ```bash
 # Install dependencies
 npm install
+```
 
 # Run development server
-npm run dev
+```npm run dev```
 
 # Build for production
-npm run build
+```npm run build```
 
 # Start production server
-npm start
-```
+```npm start```
+
 ## 🌍 Deployment
 
 The project is deployed on **Railway** and works out of the box on any Node-based platform.
