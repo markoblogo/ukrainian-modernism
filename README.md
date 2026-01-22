@@ -1,7 +1,15 @@
-# Ukrainian Modernism  
-### Editorial Landing Page (FR / UK)
+# Ukrainian Modernism — Landing
 
-**Live site:** https://ukrmodernism.abvx.xyz
+[![Live](https://img.shields.io/badge/Live-ukrmodernism.abvx.xyz-2ea44f)](https://ukrmodernism.abvx.xyz)
+[![Video](https://img.shields.io/badge/Video-YouTube-red)](https://youtu.be/krXa1OzLVIs)
+![Next.js](https://img.shields.io/badge/Next.js-App%20Router-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue)
+
+## Demo video
+[![Ukrainian Modernism — site walkthrough](https://img.youtube.com/vi/krXa1OzLVIs/maxresdefault.jpg)](https://youtu.be/krXa1OzLVIs)
+
+## Live
+https://ukrmodernism.abvx.xyz
 
 A content-driven editorial landing page dedicated to Ukrainian modernist literature of the 1920s, created for a French-speaking audience.
 
