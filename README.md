@@ -1,87 +1,117 @@
-# Ukrainian Modernism — Landing Template
+# Ukrainian Modernism  
+### Editorial Landing Page (FR / UK)
 
-A minimalist, content-driven landing page built with **Next.js (App Router, modern version)**.
-Designed as an editorial showcase for a book collection, featuring i18n support (FR/UK), smooth interactions, and a premium magazine-style layout.
+**Live site:** https://ukrmodernism.abvx.xyz
 
-## 🏗 Architecture
+A content-driven editorial landing page dedicated to Ukrainian modernist literature of the 1920s, created for a French-speaking audience.
 
-- **Framework**: Next.js 16+ (App Router)
-- **Language**: TypeScript
-- **Styling**: CSS Modules (zero-runtime overhead, scoped styles)
-- **Internationalization**: Dictionary-based i18n (JSON files)
-- **Typography**: Optimized for readability (Serif headings, Sans-serif body)
+The project presents a curated book collection with a magazine-style layout, bilingual content (French / Ukrainian), and a strong focus on readability, rhythm, and visual hierarchy.
 
-### Core Structure
+---
+
+## ✦ About the Project
+
+This site was created as a **finished cultural product**, not as a generic UI kit.
+
+It serves two purposes:
+
+1. A public landing page for the *Ukrainian Modernism* book collection  
+2. A clean, reusable **editorial structure** for future content-driven projects (by replacing texts and images)
+
+The codebase deliberately avoids over-engineering and focuses on clarity, maintainability, and long-term reuse.
+
+---
+
+## 🧱 Tech Stack
+
+- **Framework:** Next.js (App Router)
+- **Language:** TypeScript
+- **Styling:** CSS Modules (scoped, zero runtime)
+- **i18n:** Dictionary-based (JSON)
+- **Hosting:** Railway
+- **Domain:** Cloudflare DNS
+
+No CMS, no database, no runtime dependencies beyond Node.
+
+---
+
+## 📁 Project Structure
 
 ```
 src/
 ├── app/
-│   ├── [lang]/          # Localized routes (/fr, /ukOnly)
-│   │   ├── page.tsx     # Main Landing Page
-│   │   ├── legal/       # Legal Mentions page
-│   │   └── privacy/     # Privacy Policy page
-│   └── layout.tsx       # Root layout (fonts, metadata)
+│   └── [lang]/           # Localized routes (/fr, /uk)
+│       ├── page.tsx      # Main landing
+│       ├── legal/
+│       └── privacy/
 ├── components/
-│   ├── Hero.tsx         # Hero section with Staircase book stack
-│   ├── WhySection.tsx   # "Why this collection" grid
-│   ├── BookSection.tsx  # Individual book showcase (Magazine layout)
-│   ├── Footer.tsx       # Footer navigation
-│   └── ...
+│   ├── Hero.tsx          # Book stack hero
+│   ├── WhySection.tsx    # Editorial context section
+│   ├── BookSection.tsx   # Magazine-style book layouts
+│   └── Footer.tsx
 ├── data/
-│   └── books.ts         # Single Source of Truth for book data
+│   └── books.ts          # Book metadata & links
 └── dictionaries/
-    ├── fr.json          # French content
-    └── uk.json          # Ukrainian content
+├── fr.json
+└── uk.json
 ```
 
 ---
 
-## 📝 Content-Driven Approach
+---
 
-All content is separated from the UI logic. You can reuse this project by simply updating the data files.
+## ✍️ Content-First Design
 
-### 1. Dictionary Strings (`src/dictionaries/*.json`)
-All UI text — headings, buttons, "Why" cards, and Legal pages — lives here.
-- `fr.json` (French)
-- `uk.json` (Ukrainian)
+All meaningful content is separated from layout logic.
 
-### 2. Book Data (`src/data/books.ts`)
-The `books.ts` file exports a typed array of `Book` objects.
-- **IDs**: Used for scrolling anchors and unique keys.
-- **Images**: Paths to covers and promo shots in `public/assets/`.
-- **Links**: Amazon, PDF downloads, YouTube teasers.
-- **Text**: Titles and descriptions are stored in `src/dictionaries/*.json` under the `collection` key, mapped by book ID.
+### Dictionaries
+All visible text lives in:
+- src/dictionaries/fr.json
+- src/dictionaries/uk.json
 
-### 3. Assets (`public/assets/`)
-Store your images here.
-- `cover.jpg` / `cover.png`: Standard book cover (Portrait).
-- `promo.png` / `promo.jpg`: Full-width promotional shot (Landscape).
+This includes:
+- Headings
+- Descriptions
+- “Why this collection” texts
+- Legal & privacy pages
+- Book titles and summaries
+
+### Books
+Book structure is defined once in:
+- src/data/books.ts
+
+Images are stored in:
+- public/assets/books/{book-id}/
 
 ---
 
-## ♻️ Reuse Instructions
+## ♻️ Reusing This Project
 
-This template is designed for editorial projects requiring a high-end feel. To adapt it:
+This repository **can be reused** for other editorial or cultural projects with similar needs.
 
-1.  **Replace Assets**:
-    - Overwrite images in `public/assets/books/`.
-    - Format: High-quality web-optimized JPG/PNG.
+Typical reuse flow:
 
-2.  **Update Content**:
-    - Edit `src/dictionaries/*.json` with your new project text.
-    - Update `src/data/books.ts` with your book IDs and URLs.
+1. Replace images in `public/assets/books/`
+2. Update texts in `src/dictionaries/*.json`
+3. Adjust book entries in `src/data/books.ts`
+4. Deploy
 
-3.  **Adjust Layout (Optional)**:
-    - The components (`BookSection`, `HeroCoverGrid`) are built to be content-agnostic.
-    - If you change the number of books, the `HeroCoverGrid` generic stack logic will handle it, though 4-5 items usually look best.
+No architectural changes required.
+
+This approach is ideal for:
+- Book launches
+- Cultural projects
+- Essays / long-form editorial content
+- Bilingual or multilingual showcases
 
 ---
 
 ## 🚀 Development
 
-### Prerequisites
-- Node.js 18+
-- npm
+```bash
+npm install
+npm run dev
+npm run build
 
 ### Commands
 
@@ -98,23 +128,12 @@ npm run build
 # Start production server
 npm start
 ```
+## 🌍 Deployment
 
-## 📦 Deployment
+The project is deployed on **Railway** and works out of the box on any Node-based platform.
+It can also be exported statically if needed.
 
-The project is structured for flexibility.
-
-### 1. Dynamic Hosting (Recommended)
-Deploying to **Vercel** or other Node.js hosting providers is the default.
-- Zero configuration required.
-- Just replace the remote origin and push.
-
-### 2. Static Export
-If you need to deploy to **GitHub Pages** or **Cloudflare Pages**:
-- Add `output: 'export'` to `next.config.ts`.
-- Run `npm run build`.
-- The `out/` folder will contain the static assets.
-
-## 📜 License
+## © License
 
 © 2026 ABVX.xyz. All rights reserved.
 Template free for reuse with attribution.
