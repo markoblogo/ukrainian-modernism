@@ -48,6 +48,21 @@ export default function Footer({ dict, lang }: { dict: any, lang: 'fr' | 'uk' })
                             </div>
                         </div>
 
+                        {/* Stoic Wisdom Series banner */}
+                        <a
+                            href="https://stoic.abvx.xyz"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.stoicBanner}
+                        >
+                            <div className={styles.stoicBannerInner}>
+                                <div className={styles.stoicBannerTitle}>Stoic Wisdom Series</div>
+                                <div className={styles.stoicBannerSubtitle}>
+                                    Stoic classics reimagined in toki pona (EN / TP).
+                                </div>
+                            </div>
+                        </a>
+
                     </div>
 
                     {/* RIGHT COLUMN: Arkushi */}
