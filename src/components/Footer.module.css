@@ -22,7 +22,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 4rem;
+    gap: 2.5rem;
 }
 
 /* LEFT COLUMN */
@@ -144,10 +144,13 @@
     color: var(--color-ink-light);
 }
 
-.stoicBannerBuild {
-    margin-top: 0.5rem;
-    font-size: 0.75rem;
-    color: rgba(0,0,0,0.35);
+/* deploy marker removed */
+
+/* MIDDLE COLUMN: Stoic banner */
+.middleCol {
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 /* RIGHT COLUMN: Arkushi */
@@ -219,6 +222,10 @@
     .grid {
         flex-direction: column;
         gap: 2rem;
+    }
+
+    .middleCol {
+        justify-content: flex-start;
     }
 
     .contactRow {
