@@ -144,6 +144,12 @@
     color: var(--color-ink-light);
 }
 
+.stoicBannerBuild {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: rgba(0,0,0,0.35);
+}
+
 /* RIGHT COLUMN: Arkushi */
 .rightCol {
     display: flex;

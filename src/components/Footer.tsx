@@ -55,12 +55,11 @@ export default function Footer({ dict, lang }: { dict: any, lang: 'fr' | 'uk' })
                             rel="noopener noreferrer"
                             className={styles.stoicBanner}
                         >
-                            <div className={styles.stoicBannerInner}>
-                                <div className={styles.stoicBannerTitle}>Stoic Wisdom Series</div>
-                                <div className={styles.stoicBannerSubtitle}>
-                                    Stoic classics reimagined in toki pona (EN / TP).
-                                </div>
+                            <div className={styles.stoicBannerTitle}>Stoic Wisdom Series</div>
+                            <div className={styles.stoicBannerSubtitle}>
+                                Stoic classics reimagined in toki pona (EN / TP).
                             </div>
+                            <div className={styles.stoicBannerBuild}>deploy check: 4bd98a1</div>
                         </a>
 
                     </div>
