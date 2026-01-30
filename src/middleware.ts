@@ -38,7 +38,10 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next) and public assets + crawler files
-    '/((?!_next|assets|images|favicon.ico|robots.txt|sitemap.xml|api).*)',
+    // Only run on "page" URLs.
+    // - skip Next internals
+    // - skip API
+    // - skip any path that looks like a file (has a dot), e.g. /robots.txt, /og/og-fr.jpg
+    '/((?!_next|api|.*\\..*).*)',
   ],
 };
