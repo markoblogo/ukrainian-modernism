@@ -3,6 +3,21 @@ export interface LocalizedString {
     uk: string;
 }
 
+export interface BookIdentifiers {
+    asinKindle?: string;
+    asinPrint?: string;
+    isbn13Print?: string;
+}
+
+export interface BookEditionDetails {
+    publicationDate?: string; // ISO yyyy-mm-dd
+    edition?: string; // e.g. "1st"
+    language?: string; // e.g. "French"
+    fileSizeMb?: number;
+    printLengthPages?: number;
+    publisher?: string;
+}
+
 export interface Book {
     id: string; // The slug (folder name)
     type: 'commercial' | 'gift';
@@ -17,6 +32,10 @@ export interface Book {
     teaserVideoId?: string;
     shortDescription: LocalizedString;
     longDescription: LocalizedString;
+
+    identifiers?: BookIdentifiers;
+    kindle?: BookEditionDetails;
+    print?: BookEditionDetails;
 }
 
 export const books: Book[] = [
@@ -36,6 +55,24 @@ export const books: Book[] = [
         amazonKindleUrl: "https://www.amazon.fr/dp/B0G8V24GS2",
         amazonPrintUrl: "https://www.amazon.fr/dp/B0G9G6JGDN",
         teaserVideoId: "CdXmATvTPjg",
+        identifiers: {
+            asinKindle: 'B0G8V24GS2',
+            asinPrint: 'B0G9G6JGDN',
+            isbn13Print: '979-8279045938',
+        },
+        kindle: {
+            publicationDate: '2025-12-19',
+            edition: '1st',
+            language: 'French',
+            fileSizeMb: 5.8,
+            printLengthPages: 473,
+        },
+        print: {
+            publicationDate: '2025-12-19',
+            language: 'French',
+            publisher: 'Independently published',
+            printLengthPages: 495,
+        },
         shortDescription: {
             fr: "L'espace est clos, la morale est fissurée, et la langue se brise pour dire l'indicible. Khvylovy, c'est la révolution vue de l'intérieur, sans slogans.",
             uk: "Простір замкнений, мораль тріщить, а мова ламається, щоб сказати про невимовне. Хвильовий — це революція зсередини, без жодних гасел."
@@ -61,6 +98,24 @@ export const books: Book[] = [
         amazonKindleUrl: "https://www.amazon.fr/dp/B0GC9P9VKT",
         amazonPrintUrl: "https://www.amazon.fr/dp/B0GCLLJZJ8",
         teaserVideoId: "GqNzjSkvWvs",
+        identifiers: {
+            asinKindle: 'B0GC9P9VKT',
+            asinPrint: 'B0GCLLJZJ8',
+            isbn13Print: '979-8241273000',
+        },
+        kindle: {
+            publicationDate: '2025-12-23',
+            edition: '1st',
+            language: 'French',
+            fileSizeMb: 11.5,
+            printLengthPages: 272,
+        },
+        print: {
+            publicationDate: '2025-12-25',
+            language: 'French',
+            publisher: 'Independently published',
+            printLengthPages: 252,
+        },
         shortDescription: {
             fr: "Ianovski écrit comme la caméra bouge. Un navire devient le symbole d'une utopie créatrice dans ce texte lumineux, risqué et profondément européen.",
             uk: "Яновський пише так, ніби камера рухається. Корабель стає символом утопії в цьому світлому, ризикованому і глибоко європейському тексті."
@@ -86,6 +141,24 @@ export const books: Book[] = [
         amazonKindleUrl: "https://www.amazon.fr/dp/B0GDV7283Z",
         amazonPrintUrl: "https://www.amazon.fr/dp/B0GDXGNT6B",
         teaserVideoId: "LWRWb7CKE4I",
+        identifiers: {
+            asinKindle: 'B0GDV7283Z',
+            asinPrint: 'B0GDXGNT6B',
+            isbn13Print: '979-8242435131',
+        },
+        kindle: {
+            publicationDate: '2026-01-03',
+            edition: '1st',
+            language: 'French',
+            fileSizeMb: 20.7,
+            printLengthPages: 640,
+        },
+        print: {
+            publicationDate: '2026-01-03',
+            language: 'French',
+            publisher: 'Independently published',
+            printLengthPages: 624,
+        },
         shortDescription: {
             fr: "Johansen joue avec le roman comme avec un billard : un coup précis, et le genre éclate en mille morceaux. Une parodie de voyage savant délicieusement ironique.",
             uk: "Йогансен грає з романом як з більярдом: точний удар, і жанр розсипається на іронічні уламки. Вигадлива пародія на «наукову» подорож."
@@ -111,6 +184,19 @@ export const books: Book[] = [
         amazonKindleUrl: "https://www.amazon.fr/dp/B0GBY8CHYM",
         amazonPrintUrl: "https://www.amazon.fr/dp/B0GC5ZMBTX",
         teaserVideoId: "sHyGKkFdChY",
+        identifiers: {
+            asinKindle: 'B0GBY8CHYM',
+            asinPrint: 'B0GC5ZMBTX',
+            // TODO: add ISBN-13 for print
+        },
+        kindle: {
+            publicationDate: '2025-12-22',
+            edition: '1st',
+            language: 'French',
+            fileSizeMb: 8.3,
+            printLengthPages: 416,
+        },
+        // Print details TBD
         shortDescription: {
             fr: "Un jeune provincial vient « devenir quelqu'un » à Kiev. La ville commence alors son travail sur lui : dur, séducteur, inéluctable. Un grand roman urbain.",
             uk: "Хлопець із провінції приїздить «стати кимось» у Києві. Місто починає працювати з ним: жорстко, спокусливо, невідворотно. Великий урбаністичний роман."
