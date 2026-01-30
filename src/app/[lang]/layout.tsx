@@ -25,14 +25,20 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       siteName: 'Ukrainian Modernism',
       locale: safeLang === 'uk' ? 'uk_UA' : 'fr_FR',
       type: 'website',
-      // Use a real file to avoid 404 for crawlers. Replace later with a dedicated 1200x630 og image.
-      images: [{ url: `${base}/abvx-logo.jpg` }],
+      images: [{
+        url: `${base}/og/og-${safeLang}.jpg`,
+        width: 1200,
+        height: 630,
+        alt: safeLang === 'uk'
+          ? 'Український модернізм — французькі переклади'
+          : 'Modernisme ukrainien — traductions françaises',
+      }],
     },
     twitter: {
       card: 'summary_large_image',
       title: dict.meta.title,
       description: dict.meta.description,
-      images: [`${base}/abvx-logo.jpg`],
+      images: [`${base}/og/og-x.jpg`],
     },
     robots: {
       index: true,
