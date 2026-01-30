@@ -38,7 +38,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next) and public assets
-    '/((?!_next|assets|images|favicon.ico|api).*)',
+    // Skip all internal paths (_next) and public assets + crawler files
+    '/((?!_next|assets|images|favicon.ico|robots.txt|sitemap.xml|api).*)',
   ],
 };
