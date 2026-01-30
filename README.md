@@ -12,6 +12,8 @@
 ## Live
 https://ukrmodernism.abvx.xyz
 
+**License:** MIT. See [LICENSE](LICENSE).
+
 A content-driven editorial landing page dedicated to Ukrainian modernist literature of the 1920s, created for a French-speaking audience.
 
 The project presents a curated book collection with a magazine-style layout, bilingual content (French / Ukrainian), and a strong focus on readability, rhythm, and visual hierarchy.
