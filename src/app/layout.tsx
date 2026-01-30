@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { headers } from 'next/headers';
 import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
 
@@ -20,16 +19,17 @@ export const metadata: Metadata = {
   applicationName: 'Ukrainian Modernism',
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const h = await headers();
-  const lang = h.get('x-lang') ?? 'fr';
-
+  // IMPORTANT:
+  // Do not use headers()/cookies() here.
+  // Static routes (e.g. /[lang]/book/[id]) are prerendered and will fail with DYNAMIC_SERVER_USAGE.
+  // We keep a safe default; language-specific metadata + hreflang handle SEO correctly.
   return (
-    <html lang={lang} className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="fr" className={`${inter.variable} ${playfair.variable}`}>
       <body>{children}</body>
     </html>
   );
