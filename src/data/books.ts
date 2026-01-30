@@ -37,11 +37,11 @@ export const books: Book[] = [
         amazonPrintUrl: "https://www.amazon.fr/dp/B0G9G6JGDN",
         teaserVideoId: "CdXmATvTPjg",
         shortDescription: {
-            fr: "L'espace est clos, la morale est fissurée, et la langue se brise pour dire l'indicible. Khvylovy, c'est la révolution vue de l'intérieur, без slogans.",
+            fr: "L'espace est clos, la morale est fissurée, et la langue se brise pour dire l'indicible. Khvylovy, c'est la révolution vue de l'intérieur, sans slogans.",
             uk: "Простір замкнений, мораль тріщить, а мова ламається, щоб сказати про невимовне. Хвильовий — це революція зсередини, без жодних гасел."
         },
         longDescription: {
-            fr: "Une constellation de récits où l'individu se débat with l'idée et l'Histoire. On y trouve une prose musicale, fragmentée, et un regard impitoyable sur la vulgarité institutionnelle. Nouvelle traduction avec préface et notes.",
+            fr: "Une constellation de récits où l'individu se débat avec l'idée et l'Histoire. On y trouve une prose musicale, fragmentée, et un regard impitoyable sur la vulgarité institutionnelle. Nouvelle traduction avec préface et notes.",
             uk: "Сузір'я оповідань, де особистість бореться з ідеєю та Історією. Читач знайде тут музичну, фрагментовану прозу та нещадний погляд на інституційну вульгарність. Новий переклад із передмовою та примітками."
         }
     },
@@ -62,11 +62,11 @@ export const books: Book[] = [
         amazonPrintUrl: "https://www.amazon.fr/dp/B0GCLLJZJ8",
         teaserVideoId: "GqNzjSkvWvs",
         shortDescription: {
-            fr: "Ianovski écrit comme la caméra bouге. Un navire devient le symbole d'une utopie créatrice dans ce texte lumineux, risqué et profondément européen.",
+            fr: "Ianovski écrit comme la caméra bouge. Un navire devient le symbole d'une utopie créatrice dans ce texte lumineux, risqué et profondément européen.",
             uk: "Яновський пише так, ніби камера рухається. Корабель стає символом утопії в цьому світлому, ризикованому і глибоко європейському тексті."
         },
         longDescription: {
-            fr: "Ianovski a inventé le roman-cinéma : libre, solaire, loin des clichés d'un Orient « sombre ». Ici, Odessa est la fabrique du futur : la mer comme méthode, l'amitié comme moteur, l'art comme promise. Traduction intégrale accompagnée d'une préface et de notes.",
+            fr: "Ianovski a inventé le roman-cinéma : libre, solaire, loin des clichés d'un Orient « sombre ». Ici, Odessa est la fabrique du futur : la mer comme méthode, l'amitié comme moteur, l'art comme promesse. Traduction intégrale accompagnée d'une préface et de notes.",
             uk: "Яновський винайшов роман-кіно: вільний, світлий, глибоко європейський, далекий від кліше «темного» Сходу. Одеса тут — фабрика майбутнього: море як метод, дружба як двигун, мистецтво як обіцянка. Повний французький переклад із передмовою та примітками."
         }
     },
@@ -91,7 +91,7 @@ export const books: Book[] = [
             uk: "Йогансен грає з романом як з більярдом: точний удар, і жанр розсипається на іронічні уламки. Вигадлива пародія на «наукову» подорож."
         },
         longDescription: {
-            fr: "Première édition française d'un auteur clé de la Renaissance fusillée. Johansen livre une prose joueuse et ironique, consciente de ses propres mécanismes — comme si Queneau ou Perec avaient pris le train pour Kharkiv en 1928. Roman, poétique, reportage : une anthologie qui prouве que le modernisme ukrainien est une avant-garde européenne.",
+            fr: "Première édition française d'un auteur clé de la Renaissance fusillée. Johansen livre une prose joueuse et ironique, consciente de ses propres mécanismes — comme si Queneau ou Perec avaient pris le train pour Kharkiv en 1928. Roman, poétique, reportage : une anthologie qui prouve que le modernisme ukrainien est une avant-garde européenne.",
             uk: "Перше французьке видання ключового автора Розстріляного Відродження. Йогансен пише грайливу, іронічну прозу, свідому власних механізмів — ніби Кено та Перек сіли на потяг до Харкова у 1928 році. Роман, поетика, репортаж: антологія, що доводить: український модернізм — це європейський авангард."
         }
     },
@@ -113,10 +113,10 @@ export const books: Book[] = [
         teaserVideoId: "sHyGKkFdChY",
         shortDescription: {
             fr: "Un jeune provincial vient « devenir quelqu'un » à Kiev. La ville commence alors son travail sur lui : dur, séducteur, inéluctable. Un grand roman urbain.",
-            uk: "Хлопець із провінції приїздит «стати кимось» у Києві. Місто починає працювати з ним: жорстко, спокусливо, невідворотно. Великий урбаністичний роман."
+            uk: "Хлопець із провінції приїздить «стати кимось» у Києві. Місто починає працювати з ним: жорстко, спокусливо, невідворотно. Великий урбаністичний роман."
         },
         longDescription: {
-            fr: "Pidmohylny écrit la modernité urbaine sans folklore, with une finesse psychologique qui parlera aux lecteurs du réalisme. Kiev n'est pas un décor, c'est une force. Nouvelle traduction, préface, notes et appareil critique.",
+            fr: "Pidmohylny écrit la modernité urbaine sans folklore, avec une finesse psychologique qui parlera aux lecteurs du réalisme. Kiev n'est pas un décor, c'est une force. Nouvelle traduction, préface, notes et appareil critique.",
             uk: "Підмогильний пише про міську сучасність без фольклору, з психологічною тонкістю, яка відгукнеться читачам реалізму. Київ — це не декорація, це сила. Новий переклад, передмова, примітки, критичний апарат."
         }
     },
@@ -138,10 +138,10 @@ export const books: Book[] = [
         teaserVideoId: "4z3O2o2DNyc",
         shortDescription: {
             fr: "Une nouvelle saisissante sur la tragédie de la paysannerie ukrainienne, par l'un des plus grands stylistes de la Renaissance Fusillée.",
-            uk: "Вражаюча новела про трагедію українського селянства від одного з найкращих стилістів Розстріляного Відроджения."
+            uk: "Вражаюча новела про трагедію українського селянства від одного з найкращих стилістів Розстріляного Відродження."
         },
         longDescription: {
-            fr: "Hryhorii Kosynka est le maître de l'impressionnisme rural. Dans 'Dans les seigles', il peint avec une précision cruelle et une compassion infinie le déchirement d'un monde qui bascule. Ce текст, offert ici dans une nouvelle traduction, est une porte d'entrée idéale vers l'univers de Kosynka.",
+            fr: "Hryhorii Kosynka est le maître de l'impressionnisme rural. Dans 'Dans les seigles', il peint avec une précision cruelle et une compassion infinie le déchirement d'un monde qui bascule. Ce texte, offert ici dans une nouvelle traduction, est une porte d'entrée idéale vers l'univers de Kosynka.",
             uk: "Григорій Косинка — майстер сільського імпресіонізму. У «В житах» він із жорстокою точністю та безмежним співчуттям малює розлом світу, що руйнується. Цей текст, що пропонується тут у новому перекладі, є ідеальним вступом до всесвіту Косинки."
         }
     }

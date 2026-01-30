@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Modernisme Ukrainien — Collection Littéraire",
-    "description": "Découvrez les joyaux de la Renaissance Fusillée. Une collection de romans ukrainiens des années 1920, enfin accessibles en français."
+    "description": "Traductions françaises de la prose ukrainienne des années 1920. Cinq œuvres du modernisme ukrainien réunies dans un projet éditorial dédié."
   },
   "header": {
     "lang": "FR / UA"
@@ -112,7 +112,7 @@
     "editorValue": "Anton Biletskiy-Volokh (Nantes, France)",
     "contactLabel": "Contact :",
     "hostingLabel": "Hébergement :",
-    "hostingValue": "Infrastructure web standard (Vercel / GitHub Pages)",
+    "hostingValue": "Railway (railway.app)",
     "ipLabel": "Propriété intellectuelle :",
     "ipValue": "L'ensemble des textes, images et éléments graphiques de ce site sont la propriété de l'éditeur ou sont utilisés avec l'autorisation de leurs titulaires. Toute reproduction sans autorisation est interdite.",
     "liabilityLabel": "Responsabilité :",
