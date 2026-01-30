@@ -4,6 +4,7 @@
 [![Video](https://img.shields.io/badge/Video-YouTube-red)](https://youtu.be/krXa1OzLVIs)
 ![Next.js](https://img.shields.io/badge/Next.js-App%20Router-black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ## Demo video
 [![Ukrainian Modernism — site walkthrough](https://img.youtube.com/vi/krXa1OzLVIs/maxresdefault.jpg)](https://youtu.be/krXa1OzLVIs)
