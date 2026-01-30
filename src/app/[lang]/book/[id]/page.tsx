@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { notFound } from 'next/navigation';
 import { books } from '@/data/books';
 import { getDictionary } from '@/get-dictionary';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { jsonLdForBook, SITE_URL } from '@/lib/jsonld';
 
 export async function generateStaticParams() {
   return books.map((b) => ({ id: b.id }));
@@ -20,36 +22,48 @@ export async function generateMetadata({
 
   if (!book) return {};
 
-  const base = 'https://ukrmodernism.abvx.xyz';
-  const title = `${book.title[safeLang]} — ${book.author[safeLang]}`;
+  const author = book.author[safeLang];
+  const title = book.title[safeLang];
+
+  const url = `${SITE_URL}/${safeLang}/book/${id}`;
+  const ogImage = `${SITE_URL}/og/books/${id}.${safeLang}.png`;
+
+  const pageTitle =
+    safeLang === 'fr'
+      ? `${author} — ${title} (Modernisme ukrainien)`
+      : `${author} — ${title} (Український модернізм)`;
 
   return {
-    title,
-    description: book.shortDescription[safeLang],
+    title: pageTitle,
+    description:
+      safeLang === 'fr'
+        ? 'Traduction française. Série Modernisme ukrainien (ABVX).'
+        : 'Французький переклад. Серія «Український модернізм» (ABVX).',
     alternates: {
-      canonical: `${base}/${safeLang}/book/${id}`,
+      canonical: url,
       languages: {
-        fr: `${base}/fr/book/${id}`,
-        uk: `${base}/uk/book/${id}`,
+        fr: `${SITE_URL}/fr/book/${id}`,
+        uk: `${SITE_URL}/uk/book/${id}`,
       },
     },
     openGraph: {
-      title,
-      description: book.shortDescription[safeLang],
-      url: `${base}/${safeLang}/book/${id}`,
+      title: pageTitle,
+      description:
+        safeLang === 'fr'
+          ? 'Traduction française. Série Modernisme ukrainien.'
+          : 'Французький переклад. Серія «Український модернізм».',
+      url,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
       type: 'book',
-      images: [{
-        url: `${base}/og/books/${id}.${safeLang}.png`,
-        width: 1200,
-        height: 630,
-        alt: title,
-      }],
     },
     twitter: {
       card: 'summary_large_image',
-      title,
-      description: book.shortDescription[safeLang],
-      images: [`${base}/og/books/${id}.${safeLang}.png`],
+      title: pageTitle,
+      description:
+        safeLang === 'fr'
+          ? 'Traduction française · Modernisme ukrainien'
+          : 'Французький переклад · Український модернізм',
+      images: [ogImage],
     },
   };
 }
@@ -71,6 +85,12 @@ export default async function BookPage({
 
   return (
     <main style={{ maxWidth: 980, margin: '0 auto', padding: '32px 20px' }}>
+      <Script
+        id={`jsonld-book-${book.id}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdForBook(safeLang, book)) }}
+      />
+
       <Header lang={safeLang} />
 
       <h1 style={{ fontSize: 44, lineHeight: 1.1, marginTop: 40 }}>{title}</h1>
@@ -91,7 +111,7 @@ export default async function BookPage({
               fontWeight: 600,
             }}
           >
-            {safeLang === 'uk' ? dict.hero.buy_kindle : dict.hero.buy_kindle}
+            {dict.hero.buy_kindle}
           </a>
         )}
         {book.type === 'commercial' && book.amazonPrintUrl && (
@@ -107,7 +127,7 @@ export default async function BookPage({
               border: '1px solid rgba(0,0,0,0.12)',
             }}
           >
-            {safeLang === 'uk' ? dict.hero.buy_print : dict.hero.buy_print}
+            {dict.hero.buy_print}
           </a>
         )}
         {book.type === 'gift' && book.downloadPdfUrl && (
@@ -122,7 +142,7 @@ export default async function BookPage({
               fontWeight: 600,
             }}
           >
-            {safeLang === 'uk' ? dict.hero.download_pdf : dict.hero.download_pdf}
+            {dict.hero.download_pdf}
           </a>
         )}
         {book.type === 'gift' && book.downloadEpubUrl && (
@@ -138,7 +158,7 @@ export default async function BookPage({
               border: '1px solid rgba(0,0,0,0.12)',
             }}
           >
-            {safeLang === 'uk' ? dict.hero.download_epub : dict.hero.download_epub}
+            {dict.hero.download_epub}
           </a>
         )}
       </div>
