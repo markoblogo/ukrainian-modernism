@@ -187,7 +187,7 @@ export const books: Book[] = [
         identifiers: {
             asinKindle: 'B0GBY8CHYM',
             asinPrint: 'B0GC5ZMBTX',
-            // TODO: add ISBN-13 for print
+            isbn13Print: '979-8279477104',
         },
         kindle: {
             publicationDate: '2025-12-22',
