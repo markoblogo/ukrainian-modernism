@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { getDictionary } from '@/get-dictionary';
+import { orgJsonLd, websiteJsonLd } from '@/lib/jsonld';
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
@@ -25,14 +27,17 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       siteName: 'Ukrainian Modernism',
       locale: safeLang === 'uk' ? 'uk_UA' : 'fr_FR',
       type: 'website',
-      images: [{
-        url: `${base}/og/og-${safeLang}.jpg`,
-        width: 1200,
-        height: 630,
-        alt: safeLang === 'uk'
-          ? 'Український модернізм — французькі переклади'
-          : 'Modernisme ukrainien — traductions françaises',
-      }],
+      images: [
+        {
+          url: `${base}/og/og-${safeLang}.jpg`,
+          width: 1200,
+          height: 630,
+          alt:
+            safeLang === 'uk'
+              ? 'Український модернізм — французькі переклади'
+              : 'Modernisme ukrainien — traductions françaises',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
@@ -47,10 +52,29 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   };
 }
 
-export default function LangLayout({
+export default async function LangLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ lang: string }>;
 }) {
-  return children;
+  const { lang } = await params;
+  const safeLang = (lang === 'uk' || lang === 'fr') ? lang : 'fr';
+
+  return (
+    <>
+      <Script
+        id="jsonld-org"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd()) }}
+      />
+      <Script
+        id="jsonld-website"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd(safeLang)) }}
+      />
+      {children}
+    </>
+  );
 }
