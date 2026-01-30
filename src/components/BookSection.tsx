@@ -55,7 +55,14 @@ export default function BookSection({ book, dict, isLast }: BookSectionProps) {
                 <div className={styles.contentCol}>
                     <header className={styles.header}>
                         {isGift && <GiftBadge label="FREE" className={styles.sectionBadge} />}
-                        <h2 className={styles.title}>{title}</h2>
+                        <h2 className={styles.title}>
+                            <a
+                                href={isGift ? `/${lang}/gift` : `/${lang}/book/${book.id}`}
+                                style={{ color: 'inherit', textDecoration: 'none' }}
+                            >
+                                {title}
+                            </a>
+                        </h2>
                         <p className={styles.author}>{author}</p>
                     </header>
 

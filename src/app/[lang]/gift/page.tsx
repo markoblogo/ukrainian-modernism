@@ -1,15 +1,16 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { getDictionary } from '@/get-dictionary';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { books } from '@/data/books';
+import { jsonLdForBook } from '@/lib/jsonld';
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
   const safeLang = (lang === 'uk' || lang === 'fr') ? lang : 'fr';
 
   const base = 'https://ukrmodernism.abvx.xyz';
-  const dict = await getDictionary(safeLang);
 
   return {
     title: safeLang === 'uk' ? 'Книга в подарунок — Український модернізм' : 'Un livre en cadeau — Modernisme ukrainien',
@@ -57,6 +58,14 @@ export default async function GiftPage({ params }: { params: Promise<{ lang: str
 
   return (
     <main style={{ maxWidth: 980, margin: '0 auto', padding: '32px 20px' }}>
+      {gift && (
+        <Script
+          id="jsonld-gift-book"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdForBook(safeLang, gift)) }}
+        />
+      )}
+
       <Header lang={safeLang} />
 
       <h1 style={{ fontSize: 44, lineHeight: 1.1, marginTop: 40 }}>
